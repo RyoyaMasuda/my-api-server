@@ -1,0 +1,43 @@
+// my-api-server/tsconfig.json
+{
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src", // ★コメントアウトを解除
+    "outDir": "./dist", // ★コメントアウトを解除
+
+    // Environment Settings
+    "module": "commonjs", // ★ここを "commonjs" に変更
+    "target": "es2021", // ★esnext でも動作しますが、es2021 の方が広く互換性があります
+    "lib": ["es2021"], // ★Node.js 環境向けに lib を指定 (以前の提案と同様)
+    "types": ["node", "express", "cors"], // ★必要な型定義を明示的に指定
+    "moduleResolution": "node", // ★Node.js のモジュール解決戦略を使用
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options (必要に応じてコメントアウトを解除)
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    // "jsx": "react-jsx", // ★Reactコンポーネントを含まないので不要
+    // "verbatimModuleSyntax": true, // ★CommonJS では不要
+    // "isolatedModules": true, // ★CommonJS では通常不要
+    // "noUncheckedSideEffectImports": true, // ★CommonJS では通常不要
+    "moduleDetection": "auto", // ★CommonJS では "auto" で十分
+    "skipLibCheck": true,
+
+    "esModuleInterop": true, // ★この行が 'true' になっていることを確認
+  }
+}
