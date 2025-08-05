@@ -1,5 +1,6 @@
 // my-weather-api-server/src/index.ts
-import express, { Request, Response } from 'express';
+import express from 'express'; // expressのデフォルトエクスポート（関数）をインポート
+import { Request, Response } from 'express';
 import cors from 'cors';
 
 const app = express();
@@ -21,13 +22,18 @@ app.use(express.json());
 app.get('/weather', (req: Request, res: Response) => {
   console.log('GET /weather リクエストを受信しました。');
 
-  // 仮の天気データ（実際は外部APIやデータベースから取得）
   const weatherData = {
-    location: "Tokyo",
-    temperature: 25, // 摂氏
-    condition: "晴れ",
-    humidity: 60, // %
-    windSpeed: 8 // m/s
+    location: {
+      country: "Japan",
+      name: "Tokyo",
+    },
+    current: {
+      temp_c: "25.5",
+      condition: {
+        text: "快晴",
+        icon: "//cdn.weatherapi.com/weather/64x64/day/113.png" // 仮のアイコンURL
+      }
+    }
   };
 
   // JSON形式でデータを返す
